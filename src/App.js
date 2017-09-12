@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import * as PIXI from 'pixi.js';
+import PIXIApp from './pixi/App';
 import './App.css';
+import ShipUrl from './images/ship.png';
 
 class App extends Component {
+  componentDidMount() {
+    PIXI.loader.add([{ name: 'ship', url: ShipUrl }]).load(() => {
+      new PIXIApp({
+        height: 600,
+        width: 600,
+        view: this.c,
+        backgroundColor: 0xffffff
+      });
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <section className="App-menu">
+          <a>Addition</a>
+        </section>
+        <section className="App-example">
+          <canvas ref={c => (this.c = c)} />
+        </section>
       </div>
     );
   }
