@@ -7,7 +7,9 @@ import ShipUrl from './images/ship.png';
 const examples = [
   { name: 'Add', state: PIXIApp.ADD },
   { name: 'Subtract', state: PIXIApp.SUBTRACT },
-  { name: 'Scalar Multiplication', state: PIXIApp.SCALAR_MULTIPLICATION }
+  { name: 'Scalar Multiplication', state: PIXIApp.SCALAR_MULTIPLICATION },
+  { name: 'Length', state: PIXIApp.LENGTH },
+  { name: 'Distance', state: PIXIApp.DISTANCE }
 ];
 
 class App extends Component {
