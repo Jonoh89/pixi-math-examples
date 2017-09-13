@@ -1,9 +1,10 @@
 import * as PIXI from 'pixi.js';
+import BaseState from './Base';
 import Ship from '../components/Ship';
 import Button from '../components/Button';
 import { add } from '../../VectorMath';
 
-class Add extends PIXI.Container {
+class Add extends BaseState {
   constructor() {
     super();
     this._addShip();

@@ -1,8 +1,9 @@
 import * as PIXI from 'pixi.js';
+import BaseState from './Base';
 import Ship from '../components/Ship';
 import { subtract } from '../../VectorMath';
 
-class Add extends PIXI.Container {
+class Subtract extends BaseState {
   constructor() {
     super();
     this._addShips();
@@ -69,4 +70,4 @@ class Add extends PIXI.Container {
   }
 }
 
-export default Add;
+export default Subtract;

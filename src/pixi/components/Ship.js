@@ -20,7 +20,7 @@ class Ship extends PIXI.Sprite {
 
   setShipPosition(x, y) {
     this.position.set(x, y);
-    this._text.text = `${x}, ${y}`;
+    this._text.text = `${parseInt(x)}, ${parseInt(y)}`;
   }
 }
 
