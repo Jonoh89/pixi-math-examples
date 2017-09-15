@@ -7,7 +7,7 @@ class Distance extends BaseState {
   constructor() {
     super();
     this._addShips();
-    this._drawLineBetween(this.destinationShip);
+    this._drawLineBetween(this.enemyShip);
     this._drawLineBetween(this.destinationShip2);
   }
 
@@ -17,11 +17,11 @@ class Distance extends BaseState {
     this.addChild(this.ship);
     this._makeDraggable(this.ship);
 
-    this.destinationShip = new Ship();
-    this.destinationShip.setShipPosition(200, 300);
-    this.destinationShip.tint = 0xff1f00;
-    this.destinationShip.alpha = 0.5;
-    this.addChild(this.destinationShip);
+    this.enemyShip = new Ship();
+    this.enemyShip.setShipPosition(200, 300);
+    this.enemyShip.tint = 0xff1f00;
+    this.enemyShip.alpha = 0.5;
+    this.addChild(this.enemyShip);
 
     this.destinationShip2 = new Ship();
     this.destinationShip2.setShipPosition(400, 300);
@@ -48,7 +48,7 @@ class Distance extends BaseState {
         if (this.ship.dragging) {
           const newPosition = this.ship.data.getLocalPosition(this.parent);
           ship.setShipPosition(newPosition.x, newPosition.y);
-          this._drawLineBetween(this.destinationShip);
+          this._drawLineBetween(this.enemyShip);
           this._drawLineBetween(this.destinationShip2);
         }
       });

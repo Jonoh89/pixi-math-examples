@@ -23,16 +23,20 @@ export const distance = (point1, point2) => {
   return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 };
 
-export const divide = (point1, point2) => ([point1.x / point2.x, point1.y / point2.y]);
+export const divide = (point1, point2) => [
+  point1.x / point2.x,
+  point1.y / point2.y
+];
 
-export const normalize = (point) => {
-  const length = length(point);
+export const normalize = point => {
+  const pointLength = length(point);
 
-  if (length === 0) {
+  if (pointLength === 0) {
     return [1, 0];
   }
 
-  return divide(point, new PIXI.Point(length, length));
+  return divide(point, new PIXI.Point(pointLength, pointLength));
 };
 
-export const dot = (point1, point2) => point1.x * point2.x + point1.y * point2.y;
+export const dot = (point1, point2) =>
+  point1.x * point2.x + point1.y * point2.y;

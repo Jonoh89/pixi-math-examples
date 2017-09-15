@@ -5,6 +5,7 @@ import Subtract from './state/Subtract';
 import ScalarMultiplication from './state/ScalarMultiplication';
 import Length from './state/Length';
 import Distance from './state/Distance';
+import DotProduct from './state/DotProduct';
 
 class App extends PIXI.Application {
   static ADD = 'ADD';
@@ -12,12 +13,13 @@ class App extends PIXI.Application {
   static SCALAR_MULTIPLICATION = 'SCALAR_MULTIPLICATION';
   static LENGTH = 'LENGTH';
   static DISTANCE = 'DISTANCE';
+  static DOT_PRODUCT = 'DOT_PRODUCT';
 
   constructor(options) {
     super(options);
     const grid = new Grid();
     this.stage.addChild(grid);
-    this.setState(App.DISTANCE);
+    this.setState(App.DOT_PRODUCT);
     this._setupUpdate();
   }
 
@@ -37,6 +39,9 @@ class App extends PIXI.Application {
     }
     if (name === App.DISTANCE) {
       this.state = new Distance();
+    }
+    if (name === App.DOT_PRODUCT) {
+      this.state = new DotProduct();
     }
     this.stage.addChild(this.state);
   }

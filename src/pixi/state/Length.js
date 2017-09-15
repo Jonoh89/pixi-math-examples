@@ -16,11 +16,11 @@ class Length extends BaseState {
     this.addChild(this.ship);
     this._makeDraggable(this.ship);
 
-    this.destinationShip = new Ship();
-    this.destinationShip.setShipPosition(300, 300);
-    this.destinationShip.tint = 0xff1f00;
-    this.destinationShip.alpha = 0.5;
-    this.addChild(this.destinationShip);
+    this.enemyShip = new Ship();
+    this.enemyShip.setShipPosition(300, 300);
+    this.enemyShip.tint = 0xff1f00;
+    this.enemyShip.alpha = 0.5;
+    this.addChild(this.enemyShip);
   }
 
   _makeDraggable(ship) {
@@ -50,7 +50,7 @@ class Length extends BaseState {
     if (this.line) this.removeChild(this.line);
     const [x, y] = VectorMath.subtract(
       this.ship.position,
-      this.destinationShip.position
+      this.enemyShip.position
     );
     const lineGraphic = new PIXI.Graphics();
     lineGraphic.lineStyle(1, 0xff1300);
