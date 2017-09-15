@@ -21,7 +21,21 @@ class DotProduct extends BaseState {
     this.enemyShip.setShipPosition(300, 300);
     this.enemyShip.tint = 0xff1f00;
     this.enemyShip.alpha = 0.5;
+    this.enemyShip.facing = new PIXI.Point(0, 50); // down
     this.addChild(this.enemyShip);
+
+    this.enemyFacing = new PIXI.Sprite(
+      new PIXI.Graphics()
+        .beginFill(0x000000)
+        .drawCircle(0, 0, 5)
+        .endFill()
+        .generateCanvasTexture()
+    );
+    this.enemyFacing.anchor.set(0.5);
+    this.enemyFacing.position.set(
+      ...VectorMath.add(this.enemyShip.position, this.enemyShip.facing)
+    );
+    this.addChild(this.enemyFacing);
   }
 
   _makeDraggable(ship) {
@@ -45,13 +59,8 @@ class DotProduct extends BaseState {
           const distanceBetween = new PIXI.Point(
             ...VectorMath.subtract(this.ship.position, this.enemyShip.position)
           );
-          const shipToEnemy = new PIXI.Point(
-            ...VectorMath.normalize(distanceBetween)
-          );
-          const enemyShipFacing = new PIXI.Point(
-            ...VectorMath.normalize(new PIXI.Point(350, 300))
-          );
-          const canSee = VectorMath.dot(enemyShipFacing, shipToEnemy) > 0;
+          const canSee =
+            VectorMath.dot(this.enemyShip.facing, distanceBetween) > 0;
           this._setLineOfSightIndicator(canSee);
         }
       });
