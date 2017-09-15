@@ -10,7 +10,8 @@ const examples = [
   { name: 'Scalar Multiplication', state: PIXIApp.SCALAR_MULTIPLICATION },
   { name: 'Length', state: PIXIApp.LENGTH },
   { name: 'Distance', state: PIXIApp.DISTANCE },
-  { name: 'Dot Product', state: PIXIApp.DOT_PRODUCT }
+  { name: 'Dot Product', state: PIXIApp.DOT_PRODUCT },
+  { name: 'Dot Product (2)', state: PIXIApp.DOT_PRODUCT_2 }
 ];
 
 class App extends Component {
