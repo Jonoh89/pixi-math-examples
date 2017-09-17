@@ -7,6 +7,7 @@ import Length from './state/Length';
 import Distance from './state/Distance';
 import DotProduct from './state/DotProduct';
 import DotProduct2 from './state/DotProduct2';
+import CircleVsCircle from './state/CircleVsCircle';
 
 class App extends PIXI.Application {
   static ADD = 'ADD';
@@ -16,12 +17,13 @@ class App extends PIXI.Application {
   static DISTANCE = 'DISTANCE';
   static DOT_PRODUCT = 'DOT_PRODUCT';
   static DOT_PRODUCT_2 = 'DOT_PRODUCT_2';
+  static CIRCLE_VS_CIRCLE = 'CIRCLE_VS_CIRCLE';
 
   constructor(options) {
     super(options);
     const grid = new Grid();
     this.stage.addChild(grid);
-    this.setState(App.DOT_PRODUCT_2);
+    this.setState(App.CIRCLE_VS_CIRCLE);
     this._setupUpdate();
   }
 
@@ -47,6 +49,9 @@ class App extends PIXI.Application {
     }
     if (name === App.DOT_PRODUCT_2) {
       this.state = new DotProduct2();
+    }
+    if (name === App.CIRCLE_VS_CIRCLE) {
+      this.state = new CircleVsCircle();
     }
     this.stage.addChild(this.state);
   }

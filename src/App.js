@@ -11,7 +11,8 @@ const examples = [
   { name: 'Length', state: PIXIApp.LENGTH },
   { name: 'Distance', state: PIXIApp.DISTANCE },
   { name: 'Dot Product', state: PIXIApp.DOT_PRODUCT },
-  { name: 'Dot Product (2)', state: PIXIApp.DOT_PRODUCT_2 }
+  { name: 'Dot Product (2)', state: PIXIApp.DOT_PRODUCT_2 },
+  { name: 'Circle vs Circle', state: PIXIApp.CIRCLE_VS_CIRCLE }
 ];
 
 class App extends Component {
